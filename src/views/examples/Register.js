@@ -1,20 +1,3 @@
-/*!
-
-=========================================================
-* Argon Design System React - v1.1.0
-=========================================================
-
-* Product Page: https://www.creative-tim.com/product/argon-design-system-react
-* Copyright 2020 Creative Tim (https://www.creative-tim.com)
-* Licensed under MIT (https://github.com/creativetimofficial/argon-design-system-react/blob/master/LICENSE.md)
-
-* Coded by Creative Tim
-
-=========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
-*/
 import React from "react";
 
 // reactstrap components
@@ -39,11 +22,46 @@ import DemoNavbar from "components/Navbars/DemoNavbar.js";
 import SimpleFooter from "components/Footers/SimpleFooter.js";
 
 class Register extends React.Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      name: "",
+      lastname: "",
+      email: "",
+      password: "",
+      phone: "3131313123123",
+    };
+  };
+
+    valueToState = ({ name, value, checked, type }) => {
+    this.setState(() => {
+      return { [name]: type === "checkbox" ? checked : value };
+    });
+
+  };
   componentDidMount() {
     document.documentElement.scrollTop = 0;
     document.scrollingElement.scrollTop = 0;
     this.refs.main.scrollTop = 0;
   }
+
+  register() {
+    console.log('pruebitas');
+
+    fetch('http://localhost:5000/v1/login/signup', {
+        method: 'POST',
+        headers: {},
+        body: this.state
+      })
+      .then((response) => response.json()).then((json) => {
+        return console.log(json);
+      })
+      .catch((error) => {
+        console.error(error);
+      })
+  }
+
   render() {
     return (
       <>
@@ -65,43 +83,11 @@ class Register extends React.Component {
                 <Col lg="5">
                   <Card className="bg-secondary shadow border-0">
                     <CardHeader className="bg-white pb-5">
-                      <div className="text-muted text-center mb-3">
-                        <small>Sign up with</small>
-                      </div>
-                      <div className="text-center">
-                        <Button
-                          className="btn-neutral btn-icon mr-4"
-                          color="default"
-                          href="#pablo"
-                          onClick={e => e.preventDefault()}
-                        >
-                          <span className="btn-inner--icon mr-1">
-                            <img
-                              alt="..."
-                              src={require("assets/img/icons/common/github.svg")}
-                            />
-                          </span>
-                          <span className="btn-inner--text">Github</span>
-                        </Button>
-                        <Button
-                          className="btn-neutral btn-icon ml-1"
-                          color="default"
-                          href="#pablo"
-                          onClick={e => e.preventDefault()}
-                        >
-                          <span className="btn-inner--icon mr-1">
-                            <img
-                              alt="..."
-                              src={require("assets/img/icons/common/google.svg")}
-                            />
-                          </span>
-                          <span className="btn-inner--text">Google</span>
-                        </Button>
-                      </div>
                     </CardHeader>
                     <CardBody className="px-lg-5 py-lg-5">
                       <div className="text-center text-muted mb-4">
                         <small>Or sign up with credentials</small>
+                        <pre>{JSON.stringify(this.state,null , 2)}</pre>
                       </div>
                       <Form role="form">
                         <FormGroup>
@@ -111,7 +97,25 @@ class Register extends React.Component {
                                 <i className="ni ni-hat-3" />
                               </InputGroupText>
                             </InputGroupAddon>
-                            <Input placeholder="Name" type="text" />
+                            <Input 
+                            name="name"
+                            placeholder="Name"
+                            type="text"
+                            onChange={event => this.valueToState(event.target)}/>
+                          </InputGroup>
+                        </FormGroup>
+                        <FormGroup>
+                          <InputGroup className="input-group-alternative mb-3">
+                            <InputGroupAddon addonType="prepend">
+                              <InputGroupText>
+                                <i className="ni ni-hat-3" />
+                              </InputGroupText>
+                            </InputGroupAddon>
+                            <Input 
+                            name="lastname"
+                            placeholder="lastname"
+                            type="text"
+                            onChange={event => this.valueToState(event.target)}/>
                           </InputGroup>
                         </FormGroup>
                         <FormGroup>
@@ -121,7 +125,11 @@ class Register extends React.Component {
                                 <i className="ni ni-email-83" />
                               </InputGroupText>
                             </InputGroupAddon>
-                            <Input placeholder="Email" type="email" />
+                            <Input 
+                            name = "email"
+                            placeholder="Email"
+                            type="email"
+                            onChange={event => this.valueToState(event.target)}/>
                           </InputGroup>
                         </FormGroup>
                         <FormGroup>
@@ -132,9 +140,11 @@ class Register extends React.Component {
                               </InputGroupText>
                             </InputGroupAddon>
                             <Input
+                              name="password"
                               placeholder="Password"
                               type="password"
                               autoComplete="off"
+                              onChange={event => this.valueToState(event.target)}
                             />
                           </InputGroup>
                         </FormGroup>
@@ -176,6 +186,7 @@ class Register extends React.Component {
                             className="mt-4"
                             color="primary"
                             type="button"
+                            onClick={() => this.register()}
                           >
                             Create account
                           </Button>
@@ -188,7 +199,7 @@ class Register extends React.Component {
             </Container>
           </section>
         </main>
-        <SimpleFooter />
+        {/* <SimpleFooter /> */}
       </>
     );
   }
