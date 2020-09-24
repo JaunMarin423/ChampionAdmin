@@ -28,16 +28,25 @@ class Login extends React.Component {
   }
 
   login() {
-    let data = this.state
-    console.log(data);
-
+    let token = ''
       fetch('http://localhost:5000/v1/login/signin', {
         method: 'POST',
-        headers: {},
-        body: this.state
+        headers: {
+          'Access-Control-Allow-Origin': '',
+          'Access-Control-Expose-Headers': '',
+          'Access-Control-Allow-Methods': '',
+          'Access-Control-Allow-Headers': '',
+          'Content-Type': '',
+          'Content-Length': '',
+          'Access-Control-Expose-Headers': token,
+          'ETag': '',
+          'Vary': '',
+          'Connection': '',
+        },
+        body: this.state,
       })
       .then((response) => response.json()).then((json) => {
-        return console.log(json);
+        return console.log(token + ' aquientra');
       })
       .catch((error) => {
         console.error(error);

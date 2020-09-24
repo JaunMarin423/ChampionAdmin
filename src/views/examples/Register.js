@@ -51,7 +51,17 @@ class Register extends React.Component {
 
     fetch('http://localhost:5000/v1/login/signup', {
         method: 'POST',
-        headers: {},
+        headers: {
+          'Access-Control-Allow-Origin':'',
+          'Access-Control-Expose-Headers':'',
+          'Access-Control-Allow-Methods': '',
+          'Access-Control-Allow-Headers': '',
+          'Content-Type': '',
+          'Content-Length': '',
+          'ETag': '',
+          'Vary': '',
+          'Connection': '',
+        },
         body: this.state
       })
       .then((response) => response.json()).then((json) => {
