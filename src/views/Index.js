@@ -25,6 +25,7 @@ import DemoNavbar from "components/Navbars/DemoNavbar.js";
 import CardsFooter from "components/Footers/CardsFooter.js";
 
 // index page sections
+import Login from "./IndexSections/Login.js";
 import Hero from "./IndexSections/Hero.js";
 import Buttons from "./IndexSections/Buttons.js";
 import Inputs from "./IndexSections/Inputs.js";
@@ -43,7 +44,7 @@ import Datepicker from "./IndexSections/Datepicker.js";
 import TooltipPopover from "./IndexSections/TooltipPopover.js";
 import Carousel from "./IndexSections/Carousel.js";
 import Icons from "./IndexSections/Icons.js";
-import Login from "./IndexSections/Login.js";
+
 import Download from "./IndexSections/Download.js";
 
 class Index extends React.Component {
