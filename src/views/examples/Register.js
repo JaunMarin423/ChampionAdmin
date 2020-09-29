@@ -48,25 +48,14 @@ class Register extends React.Component {
 
   register() {
     console.log('pruebitas');
-
     fetch('http://localhost:5000/v1/login/signup', {
         method: 'POST',
         headers: {
-          'Access-Control-Allow-Origin':'',
-          'Access-Control-Expose-Headers':'',
-          'Access-Control-Allow-Methods': '',
-          'Access-Control-Allow-Headers': '',
-          'Content-Type': '',
-          'Content-Length': '',
-          'ETag': '',
-          'Vary': '',
-          'Connection': '',
+          'Content-Type': 'application/json',
         },
-        body: this.state
+        body: JSON.stringify(this.state),
       })
-      .then((response) => response.json()).then((json) => {
-        return console.log(json);
-      })
+      .then((response) => alert("Usuario creado con exito"))
       .catch((error) => {
         console.error(error);
       })

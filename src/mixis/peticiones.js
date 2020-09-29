@@ -1,1 +1,5 @@
-let url = "http://localhost:5000/v1";
+class Person {
+let nombresss = "hola";
+
+
+}

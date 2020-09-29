@@ -174,11 +174,11 @@ class DemoNavbar extends React.Component {
                   <UncontrolledDropdown nav>
                     <DropdownToggle nav>
                       <i className="ni ni-collection d-lg-none mr-1" />
-                      <span className="nav-link-inner--text">Examples</span>
+                      <span className="nav-link-inner--text">Pantallas</span>
                     </DropdownToggle>
                     <DropdownMenu>
-                      <DropdownItem to="/landing-page" tag={Link}>
-                        Landing
+                      <DropdownItem to="/user-page" tag={Link}>
+                        Usuarios
                       </DropdownItem>
                       <DropdownItem to="/profile-page" tag={Link}>
                         Profile

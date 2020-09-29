@@ -2,7 +2,7 @@ import React from "react";
 
 // reactstrap components
 import { Button, Card, CardHeader, CardBody, FormGroup, Form, Input, InputGroupAddon, InputGroupText, InputGroup, Container, Row, Col } from "reactstrap";
-
+import { BrowserRouter, Route, Redirect, NavigationContainer } from "react-router-dom";
 // core components
 import DemoNavbar from "components/Navbars/DemoNavbar.js";
 // import SimpleFooter from "components/Footers/SimpleFooter.js";
@@ -28,26 +28,17 @@ class Login extends React.Component {
   }
 
   login() {
-    let token = ''
+    // let token = ''
       fetch('http://localhost:5000/v1/login/signin', {
         method: 'POST',
         headers: {
-          'Access-Control-Allow-Origin': '',
-          'Access-Control-Expose-Headers': '',
-          'Access-Control-Allow-Methods': '',
-          'Access-Control-Allow-Headers': '',
-          'Content-Type': '',
-          'Content-Length': '',
-          'Access-Control-Expose-Headers': token,
-          'ETag': '',
-          'Vary': '',
-          'Connection': '',
+          'Content-Type': 'application/json',
         },
-        body: this.state,
+        body: JSON.stringify(this.state),
       })
-      .then((response) => response.json()).then((json) => {
-        return console.log(token + ' aquientra');
-      })
+      .then((response) => localStorage.setItem('myToken', response.headers.get('Authorization')))
+      .then((response) => (response === true) )
+      .then(() => window.location.href = "/user-page")
       .catch((error) => {
         console.error(error);
       })
@@ -151,13 +142,16 @@ class Login extends React.Component {
                       </a>
                     </Col>
                     <Col className="text-right" xs="6">
-                      <a
-                        className="text-light"
-                        href="#pablo"
-                        onClick={e => e.preventDefault()}
-                      >
-                        <small>Create new account</small>
-                      </a>
+                      <Button
+                          className="btn-icon mb-3 mb-sm-0"
+                          color="info"
+                          href = "/register-page"
+                        >
+                          <span className="btn-inner--icon mr-1">
+                            <i className="fa fa-code" />
+                          </span>
+                          <span className="btn-inner--text">Registro</span>
+                        </Button>
                     </Col>
                   </Row>
                 </Col>
