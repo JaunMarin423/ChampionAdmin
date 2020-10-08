@@ -1,5 +1,9 @@
-class Person {
-let nombresss = "hola";
+import React from 'react';
 
+var MyMixin = {
+    doSomething() {
 
-}
+    }
+
+var url ='hola'; 
+};

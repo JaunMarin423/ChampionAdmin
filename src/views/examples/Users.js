@@ -18,6 +18,7 @@ import {
   Col
 } from "reactstrap";
 
+import axios from "axios";
 import DemoNavbar from "components/Navbars/DemoNavbar.js";
 import CardsFooter from "components/Footers/CardsFooter.js";
 
@@ -29,7 +30,40 @@ class Users extends React.Component {
     document.documentElement.scrollTop = 0;
     document.scrollingElement.scrollTop = 0;
     this.refs.main.scrollTop = 0;
+    var Token = sessionStorage.getItem('myToken');
+    console.log(Token)
+      axios.get('http://localhost:5000/v1/user', {
+            method: 'GET',
+            headers: {
+              
+              'Authorization': Token,
+            }})
+      .then(response => {
+        console.log(response + '  hora')
+      })
+      .catch(console.log)
+    
   }
+
+
+    // users() {
+    //   var Token = sessionStorage.getItem('myToken');
+      
+    //   fetch('http://localhost:5000/v1/user', {
+    //       method: 'GET',
+    //       headers: {
+    //         'Content-Type': 'application/json',
+    //         'Authorization': Token,
+    //       },
+    //     })
+    //     .then((response) => response.json())
+    //     .then(data => console.log(data.response.data))
+    //     .then()
+    //     .catch((error) => {
+    //       console.error(error);
+    //     })
+    // }
+
   render() {
     return (
       <>
@@ -66,17 +100,17 @@ class Users extends React.Component {
                         <Button
                           className="btn-icon mb-3 mb-sm-0"
                           color="info"
-                          href="https://demos.creative-tim.com/argon-design-system-react/#/documentation/alerts?ref=adsr-landing-page"
+                        onClick={() => this.users()}
                         >
                           <span className="btn-inner--icon mr-1">
                             <i className="fa fa-code" />
                           </span>
-                          <span className="btn-inner--text">Components</span>
+                          <span className="btn-inner--text">Vier</span>
                         </Button>
                         <Button
                           className="btn-white btn-icon mb-3 mb-sm-0 ml-1"
                           color="default"
-                          href="https://www.creative-tim.com/product/argon-design-system-react?ref=adsr-landing-page"
+                          onClick={() => this.users()}
                         >
                           <span className="btn-inner--icon mr-1">
                             <i className="ni ni-cloud-download-95" />

@@ -36,7 +36,7 @@ class Login extends React.Component {
         },
         body: JSON.stringify(this.state),
       })
-      .then((response) => localStorage.setItem('myToken', response.headers.get('Authorization')))
+      .then((response) => sessionStorage.setItem('myToken', response.headers.get('Authorization')))
       .then((response) => (response === true) )
       .then(() => window.location.href = "/user-page")
       .catch((error) => {
