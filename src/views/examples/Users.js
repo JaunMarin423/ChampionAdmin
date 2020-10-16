@@ -46,23 +46,23 @@ class Users extends React.Component {
   }
 
 
-    // users() {
-    //   var Token = sessionStorage.getItem('myToken');
+    users() {
+      var Token = sessionStorage.getItem('myToken');
       
-    //   fetch('http://localhost:5000/v1/user', {
-    //       method: 'GET',
-    //       headers: {
-    //         'Content-Type': 'application/json',
-    //         'Authorization': Token,
-    //       },
-    //     })
-    //     .then((response) => response.json())
-    //     .then(data => console.log(data.response.data))
-    //     .then()
-    //     .catch((error) => {
-    //       console.error(error);
-    //     })
-    // }
+      fetch('http://localhost:5000/v1/user', {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': Token,
+          },
+        })
+        .then((response) => response.json())
+        .then(data => console.log(data.response.data))
+        .then()
+        .catch((error) => {
+          console.error(error);
+        })
+    }
 
   render() {
     return (
@@ -112,11 +112,8 @@ class Users extends React.Component {
                           color="default"
                           onClick={() => this.users()}
                         >
-                          <span className="btn-inner--icon mr-1">
-                            <i className="ni ni-cloud-download-95" />
-                          </span>
                           <span className="btn-inner--text">
-                            Download React
+                            LogOut
                           </span>
                         </Button>
                       </div>
@@ -868,7 +865,7 @@ class Users extends React.Component {
               </Row>
             </Container>
           </section>
-          <Download />
+          
         </main>
         <CardsFooter />
       </>

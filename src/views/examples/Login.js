@@ -103,7 +103,7 @@ class Login extends React.Component {
                               onChange={event => this.valueToState(event.target)}
                             />
                           </InputGroup>
-                          <pre>{JSON.stringify(this.state)}</pre>
+                          {/* <pre>{JSON.stringify(this.state)}</pre> */}
                         </FormGroup>
                         <div className="custom-control custom-control-alternative custom-checkbox">
                           <input
