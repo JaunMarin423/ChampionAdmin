@@ -62,6 +62,11 @@ class DemoNavbar extends React.Component {
     });
   };
 
+  mifuncion(){
+    sessionStorage.removeItem('myToken');
+    
+  }
+
   render() {
     return (
       <>
@@ -108,10 +113,6 @@ class DemoNavbar extends React.Component {
                 </div>
                 <Nav className="navbar-nav-hover align-items-lg-center" navbar>
                   <UncontrolledDropdown nav>
-                    <DropdownToggle nav>
-                      <i className="ni ni-ui-04 d-lg-none mr-1" />
-                      <span className="nav-link-inner--text">Components</span>
-                    </DropdownToggle>
                     <DropdownMenu className="dropdown-menu-xl">
                       <div className="dropdown-menu-inner">
                         <Media
@@ -172,10 +173,6 @@ class DemoNavbar extends React.Component {
                     </DropdownMenu>
                   </UncontrolledDropdown>
                   <UncontrolledDropdown nav>
-                    <DropdownToggle nav>
-                      <i className="ni ni-collection d-lg-none mr-1" />
-                      <span className="nav-link-inner--text">Pantallas</span>
-                    </DropdownToggle>
                     <DropdownMenu>
                       <DropdownItem to="/user-page" tag={Link}>
                         Usuarios
@@ -194,80 +191,18 @@ class DemoNavbar extends React.Component {
                 </Nav>
                 <Nav className="align-items-lg-center ml-lg-auto" navbar>
                   <NavItem>
-                    <NavLink
-                      className="nav-link-icon"
-                      href="https://www.facebook.com/creativetim"
-                      id="tooltip333589074"
-                      target="_blank"
-                    >
-                      <i className="fa fa-facebook-square" />
-                      <span className="nav-link-inner--text d-lg-none ml-2">
-                        Facebook
-                      </span>
-                    </NavLink>
-                    <UncontrolledTooltip delay={0} target="tooltip333589074">
-                      Like us on Facebook
-                    </UncontrolledTooltip>
-                  </NavItem>
-                  <NavItem>
-                    <NavLink
-                      className="nav-link-icon"
-                      href="https://www.instagram.com/creativetimofficial"
-                      id="tooltip356693867"
-                      target="_blank"
-                    >
-                      <i className="fa fa-instagram" />
-                      <span className="nav-link-inner--text d-lg-none ml-2">
-                        Instagram
-                      </span>
-                    </NavLink>
-                    <UncontrolledTooltip delay={0} target="tooltip356693867">
-                      Follow us on Instagram
-                    </UncontrolledTooltip>
-                  </NavItem>
-                  <NavItem>
-                    <NavLink
-                      className="nav-link-icon"
-                      href="https://twitter.com/creativetim"
-                      id="tooltip184698705"
-                      target="_blank"
-                    >
-                      <i className="fa fa-twitter-square" />
-                      <span className="nav-link-inner--text d-lg-none ml-2">
-                        Twitter
-                      </span>
-                    </NavLink>
-                    <UncontrolledTooltip delay={0} target="tooltip184698705">
-                      Follow us on Twitter
-                    </UncontrolledTooltip>
-                  </NavItem>
-                  <NavItem>
-                    <NavLink
-                      className="nav-link-icon"
-                      href="https://github.com/creativetimofficial/argon-design-system-react"
-                      id="tooltip112445449"
-                      target="_blank"
-                    >
-                      <i className="fa fa-github" />
-                      <span className="nav-link-inner--text d-lg-none ml-2">
-                        Github
-                      </span>
-                    </NavLink>
-                    <UncontrolledTooltip delay={0} target="tooltip112445449">
-                      Star us on Github
-                    </UncontrolledTooltip>
-                  </NavItem>
                   <NavItem className="d-none d-lg-block ml-lg-4">
                     <Button
                       className="btn-neutral btn-icon"
                       color="default"
-                      href="https://www.creative-tim.com/product/argon-design-system-react?ref=adsr-navbar"
+                      href="#"
                       target="_blank"
                     >
                       <span className="nav-link-inner--text ml-1">
                         LogOut
                       </span>
                     </Button>
+                  </NavItem>
                   </NavItem>
                 </Nav>
               </UncontrolledCollapse>

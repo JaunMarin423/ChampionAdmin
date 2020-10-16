@@ -65,7 +65,6 @@ class Login extends React.Component {
                   <Card className="bg-secondary shadow border-0">
                     <CardHeader className="bg-white pb-5">
                       <div className="text-muted text-center mb-3">
-                        <small>Sign in with</small>
                       </div>
                       <div className="btn-wrapper text-center">
                       </div>
@@ -105,19 +104,6 @@ class Login extends React.Component {
                           </InputGroup>
                           {/* <pre>{JSON.stringify(this.state)}</pre> */}
                         </FormGroup>
-                        <div className="custom-control custom-control-alternative custom-checkbox">
-                          <input
-                            className="custom-control-input"
-                            id=" customCheckLogin"
-                            type="checkbox"
-                          />
-                          <label
-                            className="custom-control-label"
-                            htmlFor=" customCheckLogin"
-                          >
-                            <span>Remember me</span>
-                          </label>
-                        </div>
                         <div className="text-center">
                           <Button
                             className="my-4"
@@ -132,15 +118,6 @@ class Login extends React.Component {
                     </CardBody>
                   </Card>
                   <Row className="mt-3">
-                    <Col xs="6">
-                      <a
-                        className="text-light"
-                        href="#pablo"
-                        onClick={e => e.preventDefault()}
-                      >
-                        <small>Forgot password?</small>
-                      </a>
-                    </Col>
                     <Col className="text-right" xs="6">
                       <Button
                           className="btn-icon mb-3 mb-sm-0"

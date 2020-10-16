@@ -44,9 +44,7 @@ class Users extends React.Component {
       .catch(console.log)
     
   }
-
-
-    users() {
+  users() {
       var Token = sessionStorage.getItem('myToken');
       
       fetch('http://localhost:5000/v1/user', {
@@ -88,8 +86,8 @@ class Users extends React.Component {
                   <Row>
                     <Col lg="6">
                       <h1 className="display-3 text-white">
-                        A beautiful Design System{" "}
-                        <span>completed with examples</span>
+                        Usuarios aquí{" "}
+                        <span>realizar la iteración</span>
                       </h1>
                       <p className="lead text-white">
                         The design system comes with four pre-built pages to
